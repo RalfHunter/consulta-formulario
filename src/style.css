@@ -9,15 +9,23 @@
   background-color: #F1F1F199;
   border-radius: 0px 8px 8px 0px;
   transition: .5s;
-  width: 800px;
+  /* width: 800px; */
   padding: 24px;
+}
+.dados {
+  width: 700px;
+}
+.info {
+  width: 707px;
 }
 
 #app {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 8px;
 }
 
 .info {
@@ -33,15 +41,27 @@
 .info > h1 {
   display: flex;
   justify-content: space-between;
-  width: 700px;
+  /* width: 700px; */
 }
 
 .dados {
   display: flex;
   flex-direction: column;
+  border-left: 7px solid #286BB9;
 }
 .dados {
   background-color: #F1F1F199;
   border-radius: 0px 8px 8px 0px;
   transition: .5s;
+}
+
+/* TEMA DARK */
+.dados.dark, .info.dark {
+  background-color: #373636;
+}
+.dados.dark label, .info.dark h1, .dados.dark strong {
+  color: #f1f1f1
+}
+#app.dark{
+  background-color: #1e1e1e;
 }

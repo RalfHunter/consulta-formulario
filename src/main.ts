@@ -1,6 +1,22 @@
 import './style.css'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
+const mode = app.querySelector<HTMLDivElement>('.modo')!
+const info = app.querySelector<HTMLDivElement>('.info')!
+const celest = mode.querySelector<HTMLImageElement>('img')!
+const urlLocal = window.location.href
+
+
+mode.addEventListener('click', ()=>{
+    info.classList.toggle('dark')
+    const dados = app.querySelectorAll<HTMLDivElement>('.dados')!
+    app.classList.toggle('dark')
+    dados.forEach(dado => {
+        dado.classList.toggle('dark')
+    })
+    celest.src = celest.src === urlLocal+"public/moon-star%201.svg" ? urlLocal+"public/sun-moon%201.svg": urlLocal+"public/moon-star%201.svg" 
+
+})
 
 const inscritos = await fetch(`http://localhost:3000/usuarios`)
 const usuarios = await inscritos.json()
@@ -25,6 +41,6 @@ usuarios.forEach(usuario => {
     dados.appendChild(sexo)
     dados.appendChild(curso)
     dados.appendChild(obs)
-    dados.className = "dados"
+    dados.className = 'dados'
     app.appendChild(dados)
 })
