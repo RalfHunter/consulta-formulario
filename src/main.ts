@@ -1,5 +1,5 @@
 import './style.css'
-
+import type { Usuario } from './usuario'
 const app = document.querySelector<HTMLDivElement>('#app')!
 const mode = app.querySelector<HTMLDivElement>('.modo')!
 const info = app.querySelector<HTMLDivElement>('.info')!
@@ -19,7 +19,7 @@ mode.addEventListener('click', ()=>{
 })
 
 const inscritos = await fetch(`http://localhost:3000/usuarios`)
-const usuarios = await inscritos.json()
+const usuarios:Usuario[] = await inscritos.json()
 console.log(usuarios)
 usuarios.forEach(usuario => {
     const dados = document.createElement('div')!
